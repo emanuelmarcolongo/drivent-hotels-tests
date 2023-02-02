@@ -22,10 +22,24 @@ async function getTicketByEnrollmentId(enrollmentId: number) {
     return data;
 }
 
+async function getHotelbyId(hotel_id: number) {
+
+    const data = await prisma.hotel.findFirst({
+        where: {
+            id: hotel_id
+        }, include: {Rooms: true}
+    })
+
+    return data;
+
+   
+}
+
 const hotelRepository = {
     getHotels,
     getEnrollment,
-    getTicketByEnrollmentId
+    getTicketByEnrollmentId,
+    getHotelbyId
 }
 
 export default hotelRepository;
