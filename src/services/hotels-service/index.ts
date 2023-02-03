@@ -25,7 +25,8 @@ async function getHotels(userId: number) {
 
     const data = await hotelRepository.getHotels();
 
-    if (!data) {
+
+    if (!data || data.length === 0) {
         throw {type: 'NotFound', message: `We couldn't find any hotel`}
     }
 

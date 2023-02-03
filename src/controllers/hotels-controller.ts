@@ -8,6 +8,7 @@ export async function getHotelsController(req: AuthenticatedRequest, res: Respon
 
   try {
     const data = await hotelService.getHotels(userId);
+    console.log(data);
 
     return res.status(200).send(data);
     
